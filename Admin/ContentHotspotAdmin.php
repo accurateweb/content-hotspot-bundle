@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: eobuh
- * Date: 27.07.2018
- * Time: 15:35
- */
 
-namespace ContentHotspotBundle\Admin;
+namespace Accurateweb\ContentHotspotBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;

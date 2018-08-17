@@ -1,6 +1,6 @@
 <?php
 
-namespace ContentHotspotBundle\DependencyInjection;
+namespace Accurateweb\ContentHotspotBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

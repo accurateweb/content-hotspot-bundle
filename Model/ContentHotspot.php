@@ -1,6 +1,6 @@
 <?php
 
-namespace ContentHotspotBundle\Model;
+namespace Accurateweb\ContentHotspotBundle\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 

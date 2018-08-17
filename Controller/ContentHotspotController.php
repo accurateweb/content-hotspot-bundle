@@ -1,8 +1,8 @@
 <?php
 
-namespace ContentHotspotBundle\Controller;
+namespace Accurateweb\ContentHotspotBundle\Controller;
 
-use ContentHotspotBundle\Model\ContentHotspot;
+use Accurateweb\ContentHotspotBundle\Model\ContentHotspot;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

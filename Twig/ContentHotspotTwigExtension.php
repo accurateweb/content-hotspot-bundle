@@ -1,9 +1,9 @@
 <?php
 
-namespace ContentHotspotBundle\Twig;
+namespace Accurateweb\ContentHotspotBundle\Twig;
 
-use ContentHotspotBundle\Model\ContentHotspot;
-use ContentHotspotBundle\Model\ContentHotspotInterface;
+use Accurateweb\ContentHotspotBundle\Model\ContentHotspot;
+use Accurateweb\ContentHotspotBundle\Model\ContentHotspotInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Sonata\AdminBundle\Admin\AdminInterface;
 
