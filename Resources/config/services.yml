@@ -1,0 +1,12 @@
+services:
+  aw_clickzone.admin.clickzone:
+    class: ContentHotspotBundle\Admin\ContentHotspotAdmin
+    arguments: [~, %hotspot_entity%, ~]
+    tags:
+      - { name: sonata.admin, manager_type: orm, group: text, label: Клик-зоны }
+
+  aw_clickzone.twig.click_zone_extension:
+    class: ContentHotspotBundle\Twig\ContentHotspotTwigExtension
+    arguments: [ '@doctrine.orm.entity_manager', '@aw_clickzone.admin.clickzone', '%hotspot_entity%' ]
+    tags:
+      - { name: twig.extension }

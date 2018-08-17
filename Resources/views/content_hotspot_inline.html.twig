@@ -1,0 +1,7 @@
+{% if is_granted('ROLE_ADMIN') == false and app.request.get('clickzones') %}
+    <div class="clickzone-inline" id="{{ clickZone.alias }}"  style="border: 1px; border-style: dotted;">
+        {{ clickZone.text | raw }}
+    </div>
+{% else %}
+    {{ clickZone.text | raw }}
+{% endif %}
