@@ -1,6 +1,6 @@
 <?php
 
-namespace ContentHotspotBundle;
+namespace Accurateweb\ContentHotspotBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
