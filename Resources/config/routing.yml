@@ -1,4 +1,4 @@
 click_zone_edit:
-  path:     /clickzones/{alias}
+  path:     /hotspots/{alias}
   defaults: { _controller: ContentHotspotBundle:ContentHotspot:edit }
   methods: [POST]
