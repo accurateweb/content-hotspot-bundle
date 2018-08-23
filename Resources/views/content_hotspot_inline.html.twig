@@ -1,4 +1,4 @@
-{% if is_granted('ROLE_ADMIN') == true and app.request.get('hotspots') %}
+{% if canEdit and app.request.get('hotspots') %}
     <div class="clickzone-inline" id="{{ clickZone.alias }}"  style="border: 1px; border-style: dotted;">
         {{ clickZone.text | raw }}
     </div>

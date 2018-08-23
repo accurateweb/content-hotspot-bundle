@@ -7,6 +7,6 @@ services:
 
   aw_clickzone.twig.click_zone_extension:
     class: Accurateweb\ContentHotspotBundle\Twig\ContentHotspotTwigExtension
-    arguments: [ '@doctrine.orm.entity_manager', '@aw_clickzone.admin.clickzone', '%hotspot_entity%' ]
+    arguments: [ '@doctrine.orm.entity_manager', '@aw_clickzone.admin.clickzone', '%hotspot_entity%', '@session', '%security_provider_name%' ]
     tags:
       - { name: twig.extension }
