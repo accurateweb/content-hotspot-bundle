@@ -2,50 +2,17 @@
     "name": "accurateweb/content-hotspot-bundle",
     "type": "project",
     "autoload": {
-      "psr-4" : {
-        "Accurateweb\\ContentHotspotBundle\\" : ""
-      }
+        "psr-4" : {
+            "Accurateweb\\ContentHotspotBundle\\" : ""
+        }
     },
     "require": {
         "php": ">=5.3.9",
-        "doctrine/doctrine-bundle": "~1.4",
-        "doctrine/orm": "^2.4.8",
-        "incenteev/composer-parameter-handler": "~2.0",
-        "sensio/distribution-bundle": "~4.0",
-        "sensio/framework-extra-bundle": "^3.0.2",
-        "sonata-project/admin-bundle": "^3.23.0",
-        "sonata-project/doctrine-orm-admin-bundle": "^3.0",
-        "stfalcon/tinymce-bundle": "1.0",
-        "symfony/monolog-bundle": "^3.0.2",
-        "symfony/swiftmailer-bundle": "~2.3,>=2.3.10",
-        "symfony/symfony": "2.8.*",
+        "doctrine/doctrine-bundle": ">=1.4",
+        "doctrine/orm": ">=2.4.8",
+        "sonata-project/admin-bundle": ">=3.18.0",
+        "sonata-project/doctrine-orm-admin-bundle": ">=3.0",
+        "symfony/symfony": ">=2.8",
         "twig/twig": "^1.0||^2.0"
-    },
-    "require-dev": {
-        "sensio/generator-bundle": "~3.0",
-        "symfony/phpunit-bridge": "~2.7"
-    },
-    "scripts": {
-        "symfony-scripts": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
-        ],
-        "post-install-cmd": [
-            "@symfony-scripts"
-        ],
-        "post-update-cmd": [
-            "@symfony-scripts"
-        ]
-    },
-    "config": {
-        "bin-dir": "bin",
-        "platform": {
-            "php": "5.4.45"
-        },
-        "sort-packages": true
     }
 }
