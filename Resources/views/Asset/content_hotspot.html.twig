@@ -1,0 +1,26 @@
+{#
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <script src="https://underscorejs.org/underscore-min.js"></script>
+            <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+            <script src="http://backbonejs.ru/backbone-min.js"></script>
+            <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+            #}
+{#<script type="text/javascript" src="{{ asset('/bundles/clickzone/js/app/model/clickzone.js') }}"></script>#}
+
+{% if jquery is defined == false %}
+    {% set jquery = false %}
+{% endif %}
+{% if tinymce is defined == false %}
+    {% set tinymce = false %}
+{% endif %}
+{# if you not include jquery yet, pass jquery = true #}
+{% if jquery %}
+    <script src="{{ asset('/bundles/contenthotspot/js/jquery.min.js') }}"></script>
+{% endif %}
+{# include tinymce js with default toolbar #}
+{% if tinymce %}
+    {{ tinymce_init() }}
+    <script src="{{ asset('/bundles/stfalcontinymce/vendor/tinymce/jquery.tinymce.min.js') }}"></script>
+{% endif %}
+<script type="text/javascript" src="{{ asset('/bundles/contenthotspot/js/editor/clickzone-editor.js') }}"></script>
+
