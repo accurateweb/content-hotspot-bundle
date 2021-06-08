@@ -7,14 +7,15 @@ use Accurateweb\ContentHotspotBundle\Model\ContentHotspotInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Doctrine\ORM\EntityManagerInterface;
 use Sonata\AdminBundle\Admin\AdminInterface;
+use Accurateweb\ContentHotspotBundle\Service\ContentHotspotManager;
 
 class ContentHotspotTwigExtension extends \Twig_Extension
 {
-  private $em, $clickZoneAdmin, $clickZoneEntity, $session, $provider, $canEdit;
+  private $hotspotManager, $clickZoneAdmin, $clickZoneEntity, $session, $provider, $canEdit;
   
-  public function __construct(EntityManagerInterface $manager, AdminInterface $admin, $entity, Session $session, $provider)
+  public function __construct(ContentHotspotManager $hotspotManager, AdminInterface $admin, $entity, Session $session, $provider)
   {
-    $this->em = $manager;
+    $this->hotspotManager = $hotspotManager;
     $this->clickZoneAdmin = $admin;
     $this->clickZoneEntity = $entity;
     $this->provider = $provider;
@@ -51,22 +52,9 @@ class ContentHotspotTwigExtension extends \Twig_Extension
         }
       }
     }
-    
-    $clickZone = $this->em->getRepository($this->clickZoneEntity)->findOneBy(['alias' => $alias]);
-    
-    if (!$clickZone)
-    {
-      /** @var ContentHotspotInterface $clickZone */
-      $clickZone = new $this->clickZoneEntity();
-      
-      $clickZone->setText($defaultContent);
-      $clickZone->setTitle('');
-      $clickZone->setAlias($alias);
-      
-      $this->em->persist($clickZone);
-      $this->em->flush();
-    }
-    
+
+    $clickZone = $this->hotspotManager->getHotspot($alias);
+
     return $environment->render('@ContentHotspot/content_hotspot_default.html.twig', array(
       'adminPath' => $this->clickZoneAdmin->generateUrl('edit', ['id' => $alias]),
       'clickZone' => $clickZone,
@@ -76,21 +64,8 @@ class ContentHotspotTwigExtension extends \Twig_Extension
   
   public function getInlineHotspot(\Twig_Environment $environment, $alias, $defaultContent = '')
   {
-    $clickZone = $this->em->getRepository($this->clickZoneEntity)->findOneBy(['alias' => $alias]);
-    
-    if (!$clickZone)
-    {
-      /** @var ContentHotspotInterface $clickZone */
-      $clickZone = new $this->clickZoneEntity();
-      
-      $clickZone->setText($defaultContent);
-      $clickZone->setTitle('');
-      $clickZone->setAlias($alias);
-      
-      $this->em->persist($clickZone);
-      $this->em->flush();
-    }
-    
+    $clickZone = $this->hotspotManager->getHotspot($alias);
+
     return $environment->render('@ContentHotspot/content_hotspot_inline.html.twig', array(
       'adminPath' => $this->clickZoneAdmin->generateUrl('edit', ['id' => $alias]),
       'clickZone' => $clickZone,
