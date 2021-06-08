@@ -3,6 +3,14 @@ services:
     class: Accurateweb\ContentHotspotBundle\Admin\ContentHotspotAdmin
     arguments: [~, %hotspot_entity%, ~]
     tags:
+      -
+        name: sonata.admin
+        manager_type: orm
+        group: %aw_content_hotspot_admin.email_template_group%
+        label: %aw_content_hotspot_admin.email_template_label%
+    calls:
+      - [ setModelManager, [ '@aw_email_template_admin.model_manager' ] ]
+    tags:
       - { name: sonata.admin, manager_type: orm, group: text, label: Клик-зоны }
 
   aw_clickzone.twig.click_zone_extension:
@@ -10,3 +18,7 @@ services:
     arguments: [ '@doctrine.orm.entity_manager', '@aw_clickzone.admin.clickzone', '%hotspot_entity%', '@session', '%security_provider_name%' ]
     tags:
       - { name: twig.extension }
+
+  aw_clickzone.service.content_hotspot_pool:
+    class: Accurateweb\ContentHotspotBundle\Service\ContentHotspotPool
+    arguments: [[]]
