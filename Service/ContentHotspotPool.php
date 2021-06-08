@@ -43,7 +43,7 @@ class ContentHotspotPool
       return $this->hotspots[$name];
     }
     
-    throw new HotspotNotFoundException(sprintf('Hotspot % not found', $name));
+    throw new HotspotNotFoundException(sprintf('Hotspot %s not found', $name));
   }
 
   /**
