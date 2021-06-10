@@ -5,6 +5,7 @@ namespace Accurateweb\ContentHotspotBundle\Admin;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 class ContentHotspotAdmin extends AbstractAdmin
 {
@@ -23,29 +24,17 @@ class ContentHotspotAdmin extends AbstractAdmin
   
   public function configureFormFields(FormMapper $form)
   {
-    $form
-      ->add('title')
-      ->add('alias');
-    
-    if (!class_exists('tinymce'))
-    {
-      $form->add('text', 'textarea', [
-        'required' => true,
-        'help' => 'Install TinyMce or another WISYWIG or override field.'
-      ]);
-    } else
-    {
-      $form
-        ->add('text', 'tinymce', [
-          'attr' => [
-            'class' => 'tinymce',
-            'tinymce' => '{"theme":"simple"}',
-            'data-theme' => 'bbcode',
-          ],
-          'required' => true
-        ]);
-    }
-    
+    $form->add('text', 'textarea', [
+      'required' => true,
+      'help' => 'Install TinyMce or another WISYWIG or override field.',
+    ]);
   }
-  
+
+  protected function configureRoutes (RouteCollection $collection)
+  {
+    $collection->remove('create');
+    $collection->remove('export');
+    $collection->remove('delete');
+  }
+
 }
